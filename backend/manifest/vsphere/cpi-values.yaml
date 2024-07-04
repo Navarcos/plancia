@@ -1,0 +1,9 @@
+vsphere-cpi:
+  config:
+    name: vsphere-cloud-config
+    vcenter: "${VSPHERE_SERVER}"
+    username: "${K8S_VSPHERE_USERNAME}"
+    password: "${K8S_VSPHERE_PASSWORD}"
+    datacenter: "${VSPHERE_DATACENTER}"
+    region: ""
+    zone: ""

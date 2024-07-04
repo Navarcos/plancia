@@ -1,0 +1,64 @@
+.machine-deployment-card-content {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+
+.machine-title-box {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+}
+
+.machine-title-box > .MuiTypography-root {
+  margin-bottom: 0;
+}
+
+.machine-list-box {
+  padding-bottom: 30px;
+  padding-left: 30px;
+  margin-left: 40px;
+  text-align: left;
+}
+
+.machine-list-box svg {
+  font-size: 18px;
+  margin-right: 8px;
+  color: #c8abb4;
+}
+
+.machine-list-box > .MuiTypography-root {
+  margin-bottom: 30px;
+}
+
+.machine-deployment-dialog {
+  overflow-y: auto;
+}
+
+.machine-deployment-dialog-title {
+  align-items: center;
+  font-weight: bold;
+}
+
+.machine-deployment-dialog-hr {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border: 0;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.dialog-list-title {
+  padding-bottom: 20px;
+  font-weight: bolder;
+}
+
+.dialog-list-title svg {
+  font-size: 18px;
+  margin-right: 8px;
+  padding-top: 5px;
+  color: rgba(0, 0, 0, 0.54);
+}

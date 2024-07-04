@@ -1,0 +1,46 @@
+.idea
+.idea/**
+
+
+frontend/node_modules
+frontend/.pnp
+frontend/.pnp.js
+frontend/.idea
+
+frontend/build
+frontend/.vscode
+# misc
+.DS_Store
+.env.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+backend/*.exe
+backend/*.exe~
+backend/*.dll
+backend/*.so
+backend/*.dylib
+backend/main
+# Test binary, built with `go test -c`
+backend/*.test
+test
+
+backend/.idea
+# Output of the go coverage tool, specifically when used with LiteIDE
+backend/*.out
+backend/*.iml
+backend/*.env
+.vscode/
+.vscode/*
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# Go workspace file
+backend/go.work
+backend/coverage.out
+
+backend/.run/
+backend/.run/*
+backend/bin
+backend/bin/*

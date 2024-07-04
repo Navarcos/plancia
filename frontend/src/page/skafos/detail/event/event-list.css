@@ -1,0 +1,13 @@
+.Warning {
+    color: red;
+    font-weight: bold;
+    padding: 40px;
+    text-align: center;
+}
+
+.Normal {
+    color: black;
+    font-weight: bold;
+    padding: 40px;
+    text-align: center;
+}

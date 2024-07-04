@@ -1,0 +1,74 @@
+.pods-row {
+  cursor: pointer;
+}
+.pods-container {
+  height: 100%;
+  margin-bottom: 300px;
+}
+
+.pods.main.box {
+  height: 100%;
+  margin-bottom: 300px;
+}
+
+.pods-paper {
+  height: 100%;
+  padding: 60px;
+}
+
+.pods-title-paper {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.pods-tooltip-icon {
+  color: #c8abb4;
+}
+
+.pods-filter-paper {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.pagination-list-table-container {
+  margin-bottom: 300px;
+}
+.pods-text-field {
+  margin-top: 20px;
+}
+
+.pods-form-control {
+  width: 350px;
+  margin-left: 16px;
+  padding-right: 16px;
+}
+
+.pods-dialog-list-title {
+  padding-bottom: 20px;
+  font-weight: bolder;
+}
+
+.pods-dialog-list-title svg {
+  font-size: 18px;
+  margin-right: 8px;
+  padding-top: 5px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.pods-dialog .MuiDialog-paper {
+  height: 80vh;
+}
+
+.pods-dialog .MuiInputBase-root {
+  height: 70vh;
+}

@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: plancia-ingress
+  namespace: plancia
+  annotations:
+    cert-manager.io/cluster-issuer: navarcos-ca-issuer
+    nginx.ingress.kubernetes.io/service-upstream: 'true'
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - plancia-api${NAVARCOS_DOMAIN_SUFFIX}
+      secretName: plancia-tls
+  rules:
+    - host: plancia-api${NAVARCOS_DOMAIN_SUFFIX}
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: plancia
+                port:
+                  number: 8080

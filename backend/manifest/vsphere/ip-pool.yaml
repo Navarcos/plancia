@@ -1,0 +1,10 @@
+apiVersion: ipam.cluster.x-k8s.io/v1alpha1
+kind: InClusterIPPool
+metadata:
+  name: ${K8S_TENANT_NAMESPACE}-${K8S_CLUSTER_NAME}
+  namespace: ${K8S_TENANT_NAMESPACE}
+spec:
+  subnet: "${VSPHERE_NETWORK_SUBNET}"
+  gateway: "${VSPHERE_NETWORK_GATEWAY}"
+  start: "${VSPHERE_NETWORK_START}"
+  end: "${VSPHERE_NETWORK_END}"

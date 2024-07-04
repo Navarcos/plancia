@@ -1,0 +1,21 @@
+.toolbar {
+    padding-right: 24px;
+}
+
+.iconButtonOpen{
+    flex-grow: 1;
+    margin-left: 0;
+    cursor: pointer;
+}
+
+.iconButtonClose{
+    flex-grow: 1;
+    margin-left: 60px;
+    cursor: pointer;
+}
+
+.logo{
+    width: "24px"; 
+    height: "24px";
+    margin-bottom: 3;
+}

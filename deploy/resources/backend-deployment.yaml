@@ -1,0 +1,56 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: plancia
+  namespace: plancia
+  labels:
+    app: plancia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: plancia
+  template:
+    metadata:
+      labels:
+        app: plancia
+    spec:
+      serviceAccountName: plancia
+      containers:
+        - name: plancia
+          image: ghcr.io/navarcos/plancia-backend:latest
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: host-ca-certs
+              mountPath: /etc/ssl/certs/
+              readOnly: true
+          ports:
+            - containerPort: 8080
+          env:
+            - name: LOGGER_LEVEL
+              value: INFO
+            - name: NAVARCOS_CA
+              valueFrom: { secretKeyRef: { name: navarcos-ca, key: ca.crt } }
+            - name: KEYCLOAK_URL
+              valueFrom: { configMapKeyRef: { name: plancia-config, key: URLkeycloak } }
+            - name: KEYCLOAK_REALM
+              valueFrom: { secretKeyRef: { name: plancia-backend-client, key: realm } }
+            - name: KEYCLOAK_SERVICE_ACCOUNT_ID
+              valueFrom: { secretKeyRef: { name: plancia-keycloak-client, key: clientId } }
+            - name: KEYCLOAK_SERVICE_ACCOUNT_SECRET
+              valueFrom: { secretKeyRef: { name: plancia-keycloak-client, key: clientSecret } }
+            - name: KEYCLOAK_AUTH_CLIENT_ID
+              valueFrom: { secretKeyRef: { name: plancia-backend-client, key: clientId } }
+            - name: KEYCLOAK_AUTH_CLIENT_SECRET
+              valueFrom: { secretKeyRef: { name: plancia-backend-client, key: clientSecret } }
+            - name: HELM_REPO_URL
+              value: https://navarcos.github.io/navarcos-charts
+            - name: SERVER_CORS_ALLOW_ORIGIN
+              valueFrom: { configMapKeyRef: { name: plancia-config, key: URLplancia-fe } }
+      volumes:
+        - name: host-ca-certs
+          hostPath:
+            path: /etc/ssl/certs/
+            type: Directory
+      imagePullSecrets:
+        - name: harbor-registry-secret

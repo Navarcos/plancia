@@ -1,0 +1,72 @@
+.ing-row {
+  cursor: pointer;
+}
+.ing-container {
+  height: 100%;
+  margin-bottom: 300px;
+}
+
+.ing.main.box {
+  height: 100%;
+  margin-bottom: 300px;
+}
+
+.ing-paper {
+  height: 100%;
+  padding: 60px;
+}
+
+.ing-title-paper {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.ing-filter-paper {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.ing-tooltip-icon {
+  color: #c8abb4;
+}
+.pagination-list-table-container {
+  margin-bottom: 300px;
+}
+.ing-text-field {
+  margin-top: 20px;
+}
+
+.ing-form-control {
+  width: 350px;
+  margin-left: 16px;
+  padding-right: 16px;
+}
+
+.ing-dialog-list-title {
+  padding-bottom: 20px;
+  font-weight: bolder;
+}
+
+.ing-dialog-list-title svg {
+  font-size: 18px;
+  margin-right: 8px;
+  padding-top: 5px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.ing-dialog .MuiDialog-paper {
+  height: 80vh;
+}
+
+.ing-dialog .MuiInputBase-root {
+  height: 70vh;
+}

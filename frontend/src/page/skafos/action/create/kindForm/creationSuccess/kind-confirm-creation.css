@@ -1,0 +1,28 @@
+.kc-confirmation-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  text-align: center;
+  background-color: white;
+}
+
+.confirmation-message {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.confirmation-button {
+  background: black;
+  border: 0;
+  border-radius: 3px;
+  color: white;
+  height: 48px;
+  padding: 0 30px;
+}
+
+.confirmation-button:hover {
+  background-color: #9db4d1;
+}

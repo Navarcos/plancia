@@ -1,0 +1,43 @@
+.box {
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+.title-box {
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 200px;
+}
+
+.title-paper {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.title-box .icon-collapse {
+  margin-left: 15px !important;
+}
+.st-icon {
+  color: #c8abb4;
+}
+
+.list-table-container {
+  border: 1px solid #e0e0e0;
+}
+.list-table-container .MuiTableCell-root {
+  font-weight: bold !important;
+}
+
+.table-cell-collapse {
+  width: 100px;
+}
+
+.table-cell-1 {
+  width: 30;
+  font-weight: bold;
+}

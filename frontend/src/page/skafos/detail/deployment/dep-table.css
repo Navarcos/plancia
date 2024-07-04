@@ -1,0 +1,74 @@
+.dp-row {
+  cursor: pointer;
+}
+.dp-container {
+  height: 100%;
+  margin-bottom: 300px;
+}
+
+.dp.main.box {
+  height: 100%;
+  margin-bottom: 300px;
+}
+
+.dp-tooltip-icon {
+  color: #c8abb4;
+}
+
+.dp-paper {
+  height: 100%;
+  padding: 60px;
+}
+
+.dp-title-paper {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.dp-filter-paper {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.cm-list-table-container {
+  margin-bottom: 300px;
+}
+.dp-text-field {
+  margin-top: 20px;
+}
+
+.dp-form-control {
+  width: 350px;
+  margin-left: 16px;
+  padding-right: 16px;
+}
+
+.dp-dialog-list-title {
+  padding-bottom: 20px;
+  font-weight: bolder;
+}
+
+.dp-dialog-list-title svg {
+  font-size: 18px;
+  margin-right: 8px;
+  padding-top: 5px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.dp-dialog .MuiDialog-paper {
+  height: 80vh;
+}
+
+.dp-dialog .MuiInputBase-root {
+  height: 70vh;
+}

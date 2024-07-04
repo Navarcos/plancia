@@ -1,0 +1,23 @@
+.ce-collapse-icon-button{
+    margin-left: 30px;
+}
+
+
+.phase-warning {
+    color: darkorange !important;
+}
+
+.phase-failed {
+    color: red !important;
+}
+
+.ce-progress-arc-cell{
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+
+.ce-progress-arc-box{
+display: flex;
+margin: 10px;
+justify-content: center;
+}

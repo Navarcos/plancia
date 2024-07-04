@@ -1,0 +1,33 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: plancia-ui
+  namespace: plancia
+  labels:
+    app: plancia-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: plancia-ui
+  template:
+    metadata:
+      labels:
+        app: plancia-ui
+    spec:
+      containers:
+        - name: plancia-ui
+          image: ghcr.io/navarcos/plancia-frontend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: config
+              mountPath: /usr/share/nginx/html/config.js
+              subPath: config.js
+      volumes:
+        - configMap:
+            name: frontend-environment
+          name: config
+      imagePullSecrets:
+        - name: harbor-registry-secret

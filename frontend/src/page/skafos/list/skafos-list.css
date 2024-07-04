@@ -1,0 +1,9 @@
+.skafos-list-box {
+  display: flex;
+  padding: 0;
+  margin-left: 50px;
+  padding-top: 30px;
+  flex-grow: 1;
+  height: 100vh;
+  overflow: auto;
+}

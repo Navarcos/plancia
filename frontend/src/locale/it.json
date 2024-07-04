@@ -1,0 +1,10 @@
+{
+  "translation": {
+    "name": "nome",
+    "settings": "Impostazioni",
+    "register": "registrati",
+    "back": "indietro",
+    "create": "crea",
+    "logout": "esci"
+  }
+}

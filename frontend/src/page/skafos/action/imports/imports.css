@@ -1,0 +1,80 @@
+.imp-main-grid {
+  min-height: 50vh;
+}
+
+.imp-container-settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imp-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d0d0d0;
+  padding: 20px;
+  background-color: #ffffff;
+  text-align: center;
+  width: 20vw;
+  height: 20vw;
+  cursor: pointer;
+}
+
+.imp-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.imp-card-image {
+  width: 90%;
+  height: auto;
+  max-height: 70%;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.imp-cards .MuiTypography-root {
+  margin-bottom: 16px;
+}
+
+.imp-cards .MuiSvgIcon-root {
+  margin-bottom: 8px;
+}
+
+.imp-bottom-buttons {
+  margin-right: 2%;
+  margin-top: 10px;
+}
+
+.imp-bottom-buttons .MuiButtonBase-root {
+  margin-right: 2px;
+}
+
+.imp-namespace-box-select {
+  width: 70%;
+}
+
+.imp-namespace-box-text {
+  width: 70%;
+}
+
+.imp-namespace-select-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.imp-namespace-select-container .MuiButtonBase-root {
+  margin-left: 16%;
+  margin-top: 25px;
+}
+
+.imp-textfield {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}

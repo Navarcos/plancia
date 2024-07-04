@@ -1,0 +1,82 @@
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200vh;
+  margin-bottom: 300px;
+}
+
+.cp-grid {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.07);
+  padding: 60px;
+  text-align: center;
+  margin-bottom: 300px;
+}
+
+.stepper {
+  padding: 5px;
+  margin: 40px;
+}
+
+.swipe-0,
+.swipe-1,
+.swipe-2,
+.swipe-3,
+.swipe-4 {
+  transition: all 0.3s ease-in-out;
+}
+
+.stepper .step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.stepper .step:last-child:after {
+  display: none;
+}
+
+.stepper .step .step-circle {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  background-color: #fff;
+  border: 2px solid #bdbdbd;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.stepper .step .step-circle::before {
+  content: attr(data-step);
+  font-size: 12px;
+}
+
+.step-colors > .MuiStepLabel-root .Mui-completed {
+  color: rgb(116, 159, 116);
+}
+.step-colors > .MuiStepLabel-label.Mui-completed.MuiStepLabel-alternativeLabel {
+  color: rgb(116, 159, 116);
+}
+.step-colors > .MuiStepLabel-root .Mui-active {
+  color: black;
+}
+.step-colors > .MuiStepLabel-root .Mui-active .MuiStepIcon-text {
+  color: white;
+}
+
+.cpage-button-box {
+  margin-top: 20vh;
+}
+
+.cpage-button-box .MuiButtonBase-root {
+  margin-right: 30px !important;
+  margin-left: 30px !important;
+}
+
+.provider-box {
+  margin: 50px;
+}

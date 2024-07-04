@@ -1,0 +1,24 @@
+.multip-grid {
+  min-height: 50vh;
+}
+
+.multip-paper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d0d0d0;
+  padding: 20px;
+  background-color: #ffffff;
+  text-align: center;
+  max-width: 400px;
+  margin: auto;
+}
+
+.multip-paper .MuiTypography-root {
+  margin-top: 30px;
+}
+.provider-box {
+  padding: 5;
+  width: 90%;
+}

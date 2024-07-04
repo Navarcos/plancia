@@ -1,0 +1,26 @@
+.shared-list-box {
+  display: flex;
+  padding: 0;
+  padding-top: 30px;
+  flex-grow: 1;
+  height: 100vh;
+  overflow: auto;
+  margin-left: 5vw;
+}
+
+.shared-cell-width {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shared-option-cell {
+  width: 35px;
+}
+
+.spinner-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}

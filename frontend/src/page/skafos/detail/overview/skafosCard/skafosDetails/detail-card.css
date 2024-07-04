@@ -1,0 +1,29 @@
+.dt-paper-card {
+  height: 300px;
+  padding: 30px;
+  justify-content: left;
+  align-items: left;
+}
+
+.dt-grid-container {
+  width: 100%;
+}
+
+.dt-data-item {
+  justify-content: left;
+  align-items: left;
+  margin: 0 !important;
+}
+
+.dt-status-item {
+  justify-content: left;
+  align-items: left;
+}
+
+.dt-title-box {
+  margin-bottom: 20px;
+}
+
+.dt-data-item > .MuiTypography-root {
+  text-align: left;
+}

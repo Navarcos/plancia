@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: plancia-ui
+  namespace: plancia
+spec:
+  type: ClusterIP
+  selector:
+    app: plancia-ui
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

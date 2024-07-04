@@ -1,0 +1,14 @@
+
+
+.chart-container {
+    text-align: center;
+}
+
+.running {
+    color: forestgreen;
+}
+
+.title {
+    font-size: 14px;
+    font-weight: bold;
+}

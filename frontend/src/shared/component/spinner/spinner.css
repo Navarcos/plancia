@@ -1,0 +1,17 @@
+.box-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner-page {
+    position: relative;
+    top: 20rem;
+}
+
+.spinner-table {
+    padding: 15px;
+}
+
+.MuiCircularProgress-root {
+}

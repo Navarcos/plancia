@@ -1,0 +1,10 @@
+csiConfig: |-
+  [Global]
+  cluster-id = "${K8S_TENANT_NAMESPACE}/${K8S_CLUSTER_NAME}"
+
+  [VirtualCenter "${VSPHERE_SERVER}"]
+  insecure-flag = "true"
+  user = "${K8S_VSPHERE_USERNAME}"
+  password = "${K8S_VSPHERE_PASSWORD}"
+  port = "443"
+  datacenters = "${VSPHERE_DATACENTER}"

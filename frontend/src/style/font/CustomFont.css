@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'CustomFont';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/src/style/font/Poppins/Poppins-Light.ttf') format('truetype');
+}

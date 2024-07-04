@@ -1,0 +1,35 @@
+.adv-main-grid {
+  min-height: 50vh;
+}
+
+.container-settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+}
+
+.adv-container-delete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d0d0d0;
+  padding: 20px;
+  background-color: #ffffff;
+  text-align: center;
+  max-width: 400px;
+  margin: auto;
+}
+
+.adv-container-delete .MuiTypography-root {
+  margin-bottom: 16px;
+}
+
+.adv-container-delete .MuiButton-root {
+  margin-bottom: 16px;
+}
+
+.adv-container-delete .MuiSvgIcon-root {
+  margin-bottom: 8px;
+}

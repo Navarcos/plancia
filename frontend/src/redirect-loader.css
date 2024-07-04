@@ -1,0 +1,15 @@
+.redirect-loader-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.redirect-loader-paper {
+  padding: 20px;
+  text-align: center;
+}
+
+.redirect-loader-text {
+  font-size: 1rem;
+}

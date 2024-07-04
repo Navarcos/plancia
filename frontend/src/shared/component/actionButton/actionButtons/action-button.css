@@ -1,0 +1,27 @@
+.scaleIcon {
+  font-size: small;
+  margin-left: 4px;
+  color: grey;
+}
+
+.close-icon {
+  position: absolute;
+  left: 60px;
+
+  color: grey;
+}
+
+.dialog-content {
+  margin-top: 16px;
+}
+
+.field-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px;
+}
+
+.text-field {
+  margin-top: 8px;
+}

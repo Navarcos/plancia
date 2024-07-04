@@ -1,0 +1,75 @@
+.nd-row {
+  cursor: pointer;
+}
+.nd-container {
+  height: 100%;
+  margin-bottom: 300px;
+}
+
+.nd.main.box {
+  height: 100%;
+  margin-bottom: 300px;
+}
+
+.nd-paper {
+  height: 100%;
+  padding: 60px;
+}
+
+.nd-title-paper {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.nd-filter-paper {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.pagination-list-table-container {
+  margin-bottom: 300px;
+}
+
+.nd-text-field {
+  margin-top: 20px;
+}
+
+.nd-form-control {
+  width: 350px;
+  margin-left: 16px;
+  padding-right: 16px;
+}
+
+.nd-tooltip-icon {
+  color: #c8abb4;
+}
+
+.nd-dialog-list-title {
+  padding-bottom: 20px;
+  font-weight: bolder;
+}
+
+.nd-dialog-list-title svg {
+  font-size: 18px;
+  margin-right: 8px;
+  padding-top: 5px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.nd-dialog .MuiDialog-paper {
+  height: 80vh;
+}
+
+.nd-dialog .MuiInputBase-root {
+  height: 70vh;
+}

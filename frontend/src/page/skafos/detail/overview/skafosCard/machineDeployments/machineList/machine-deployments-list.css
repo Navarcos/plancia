@@ -1,0 +1,27 @@
+
+.machine-deployment-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .machine-deployment-button {
+    width: 100%;
+  }
+  
+  .machine-deployment-collapse {
+    color: #000000;
+  }
+  
+  .machine-deployment-collapse-content {
+    padding: 16px;
+    max-height: 200px; 
+    overflow-y: auto;
+  }
+  
+  .machine-deployment-divider {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  
+ 
