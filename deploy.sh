@@ -12,11 +12,11 @@ echo "NAVARCOS CA:"
 echo "${NAVARCOS_CA}"
 
 KEYCLOAK_URL=$(kubectl get cm plancia-config -n plancia -o jsonpath='{.data.URLkeycloak}')
-echo Keycloak is running on "${KEYCLOAK_URL}"
+echo "Keycloak is reachable at: ${KEYCLOAK_URL}"
 
 BE_URL=$(kubectl get cm plancia-config -n plancia -o jsonpath='{.data.URLplancia-be}')
-echo Backend is running on "${BE_URL}"
+echo "Backend is reachable at: ${BE_URL}"
 
 
 FE_URL=$(kubectl get cm plancia-config -n plancia -o jsonpath='{.data.URLplancia-fe}')
-echo Plancia is running on "${FE_URL}"
+echo "Plancia is reachable at: ${FE_URL}"

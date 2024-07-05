@@ -1,15 +1,16 @@
 # Plancia
 
 ## Overview
+
 Plancia is a management console for [Navarcos](https://github.com/Navarcos/navarcos).
-This platform serves as an essential bridge for managing Skafos resources, providing 
-users with complete control and a clear view of their operations.
-Through Plancia, users can monitor the status of their Skafos instances, 
-view metrics and activity logs, and manage resources intuitively.
+This platform serves as an essential bridge for managing Skafos resources, providing users with complete control and a clear view of their operations.
+Through Plancia, users can monitor the status of their Skafos instances, view metrics and activity logs, and manage resources intuitively.
 
 ## Install
+
 Plancia is meant to be run in a Kubernetes cluster acting as a cluster manager for Navarcos.
 The installation process is really simple:
+
 1. Run a Navarcos instance (see [Navarcos](https://github.com/Navarcos/navarcos/))
 2. Wait for Navarcos readiness
 3. Ensure that your kubernetes environment (kubeconfig) refers to the previously created Navarcos cluster Manager.
@@ -19,9 +20,9 @@ The installation process is really simple:
    1. Copying the CA Certificate from the script output in a file and installing it in your browser
    2. Connecting and accepting the certificates to:
 
-      - `https://keycloak.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
-      - `https://plancia-api.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
-      - `https://plancia.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
+      * `https://keycloak.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
+      * `https://plancia-api.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
+      * `https://plancia.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
 
    Correct URLs are printed during the deploy script.
 7. Login with default credential:
@@ -37,6 +38,7 @@ Click on the skafos to see additional info on its status and the resource inside
 
 
 ## Contributing
+
 Instructions on how to contribute to the project. Include a link to the contribution guidelines.
 
 * Fork the repository
@@ -46,6 +48,7 @@ Instructions on how to contribute to the project. Include a link to the contribu
 * Open a Pull Request
 
 ## License
+
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
