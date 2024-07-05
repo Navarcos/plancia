@@ -9,20 +9,21 @@ Through Plancia, users can monitor the status of their Skafos instances, view me
 
 Plancia is meant to be run in a Kubernetes cluster acting as a cluster manager for Navarcos.
 The installation process is really simple:
-* Run a Navarcos instance (see [Navarcos](https://github.com/Navarcos/navarcos/))
-* Wait for Navarcos readiness
-* Ensure that your kubernetes environment (kubeconfig) refers to the previously created Navarcos cluster Manager.
-* Clone this project
-* Run [deploy.sh](https://github.com/Navarcos/plancia/blob/main/deploy.sh)
-* Accept Navarcos' CA, either:
-  1. Copying the CA Certificate from the script output in a file and installing it in your browser
-  2. Connecting and accepting the certificates to:
-     - `https://keycloak.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
-     - `https://plancia-api.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
-     - `https://plancia.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
+1. Run a Navarcos instance (see [Navarcos](https://github.com/Navarcos/navarcos/))
+2. Wait for Navarcos readiness
+3. Ensure that your kubernetes environment (kubeconfig) refers to the previously created Navarcos cluster Manager.
+4. Clone this project
+5. Run [deploy.sh](https://github.com/Navarcos/plancia/blob/main/deploy.sh)
+6. Accept Navarcos' CA, either:
+   1. Copying the CA Certificate from the script output in a file and installing it in your browser
+   2. Connecting and accepting the certificates to:
 
-     Correct URLs are printed during the deploy script
-* Login with default credential:
+      - `https://keycloak.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
+      - `https://plancia-api.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
+      - `https://plancia.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
+
+   Correct URLs are printed during the deploy script.
+7. Login with default credential:
   * username: `ncadmin@ncadmin.local`
   * passowrd: `ncadmin`
 
