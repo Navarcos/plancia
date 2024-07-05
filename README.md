@@ -16,7 +16,7 @@ The installation process is really simple:
 * Run [deploy.sh](https://github.com/Navarcos/plancia/blob/main/deploy.sh)
 * Accept Navarcos' CA, either:
   1. Copying the CA Certificate from the script output in a file and installing it in your browser
-  2. Connecting to:
+  2. Connecting and accepting the certificates to:
      - `https://keycloak.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
      - `https://plancia-api.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
      - `https://plancia.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
