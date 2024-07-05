@@ -1,4 +1,4 @@
-FROM node:lts-slim as builder
+FROM node:lts-slim AS builder
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json ./
