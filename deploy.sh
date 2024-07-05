@@ -5,4 +5,11 @@ envsubst < deploy/templates/backend-ingress-template.yaml > deploy/resources/bac
 envsubst < deploy/templates/frontend-ingress-template.yaml > deploy/resources/frontend-ingress.yaml
 envsubst < deploy/templates/frontend-env-template.yaml > deploy/resources/frontend-env.yaml
 
-kubectl apply -f deploy/resources
+#kubectl apply -f deploy/resources
+
+NAVARCOS_CA=$(kubectl get secret navarcos-ca -n gitlab -o jsonpath='{.data.navarcos-ca\.crt}'|base64 -d)
+echo "NAVARCOS CA:"
+echo "${NAVARCOS_CA}"
+
+FE_URL=$(kubectl get cm plancia-config -n plancia -o jsonpath='{.data.URLFrontend}')
+echo Plancia is running on "${FE_URL}"
