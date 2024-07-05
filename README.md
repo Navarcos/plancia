@@ -2,11 +2,12 @@
 
 ## Overview
 Plancia is a management console for [Navarcos](https://github.com/Navarcos/navarcos).
-This platform serves as an essential bridge for managing Skafos resources, providing users with complete control and a clear view of their operations.
-Through Plancia, users can monitor the status of their Skafos instances, view metrics and activity logs, and manage resources intuitively.
+This platform serves as an essential bridge for managing Skafos resources, providing 
+users with complete control and a clear view of their operations.
+Through Plancia, users can monitor the status of their Skafos instances, 
+view metrics and activity logs, and manage resources intuitively.
 
 ## Install
-
 Plancia is meant to be run in a Kubernetes cluster acting as a cluster manager for Navarcos.
 The installation process is really simple:
 1. Run a Navarcos instance (see [Navarcos](https://github.com/Navarcos/navarcos/))
@@ -27,7 +28,14 @@ The installation process is really simple:
   * username: `ncadmin@ncadmin.local`
   * passowrd: `ncadmin`
 
-  
+## Create Skafos
+A Skafos is a kubernetes cluster managed by navarcos.
+In order to create a new Skafos select the "plus icon" (New Skafos) on the left sidebar.
+Fill out the form and wait a few seconds to see the new skafos.
+Click on the skafos to see additional info on its status and the resource inside it.
+
+
+
 ## Contributing
 Instructions on how to contribute to the project. Include a link to the contribution guidelines.
 

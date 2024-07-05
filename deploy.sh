@@ -11,5 +11,12 @@ NAVARCOS_CA=$(kubectl get secret navarcos-ca -n plancia -o jsonpath='{.data.ca\.
 echo "NAVARCOS CA:"
 echo "${NAVARCOS_CA}"
 
+KEYCLOAK_URL=$(kubectl get cm plancia-config -n plancia -o jsonpath='{.data.URLkeycloak}')
+echo Keycloak is running on "${KEYCLOAK_URL}"
+
+BE_URL=$(kubectl get cm plancia-config -n plancia -o jsonpath='{.data.URLplancia-be}')
+echo Backend is running on "${BE_URL}"
+
+
 FE_URL=$(kubectl get cm plancia-config -n plancia -o jsonpath='{.data.URLplancia-fe}')
 echo Plancia is running on "${FE_URL}"
