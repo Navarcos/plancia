@@ -39,7 +39,7 @@ Click on the skafos to see additional info on its status and the resource inside
 
 ## Contributing
 
-Instructions on how to contribute to the project. Include a link to the contribution guidelines.
+Instructions on how to contribute to the project.
 
 * Fork the repository
 * Create a new branch (`git checkout -b feature/amazing-feature`)
