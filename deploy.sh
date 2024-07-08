@@ -17,6 +17,5 @@ echo "Keycloak is reachable at: ${KEYCLOAK_URL}"
 BE_URL=$(kubectl get cm plancia-config -n plancia -o jsonpath='{.data.URLplancia-be}')
 echo "Backend is reachable at: ${BE_URL}"
 
-
 FE_URL=$(kubectl get cm plancia-config -n plancia -o jsonpath='{.data.URLplancia-fe}')
 echo "Plancia is reachable at: ${FE_URL}"
