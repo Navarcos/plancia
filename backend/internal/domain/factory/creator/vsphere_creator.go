@@ -59,6 +59,12 @@ func (c *VsphereCreator) apply(ctx context.Context, capiManifest string) error {
 		logger.Error(ctx, "error parsing resources from file", zap.Error(err))
 		return err
 	}
+	namespace := resources[0:1]
+	err = c.applyPatch(ctx, namespace, nil)
+	if err != nil {
+		return err
+	}
+
 	err = c.validate(ctx, resources)
 	if err != nil {
 		logger.Error(ctx, "server side validation failed", zap.Error(err))
