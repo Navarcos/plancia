@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: plancia-ui
-          image: ghcr.io/navarcos/plancia-frontend:latest
+          image: ghcr.io/navarcos/plancia-frontend
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80

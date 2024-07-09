@@ -59,11 +59,11 @@ export default [
     [username.name]: Yup.string().required(`${username.requiredErrorMsg}`),
     [password.name]: Yup.string()
       .required(`${password.requiredErrorMsg}`)
-      .min(8, `${password.invalidMinLenghtErrorMsg}`)
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-        `${password.invalidCharsErrorMsg}`
-      ),
+      .min(8, `${password.invalidMinLenghtErrorMsg}`),
+      // .matches(
+      //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+      //   `${password.invalidCharsErrorMsg}`
+      // ),
     [server.name]: Yup.string()
       .required(`${server.requiredErrorMsg}`)
       .matches(

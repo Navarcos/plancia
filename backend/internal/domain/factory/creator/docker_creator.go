@@ -1,9 +1,7 @@
 package creator
 
 import (
-	"bytes"
 	"context"
-	"encoding/json"
 	"github.com/activadigital/plancia/configs"
 	"github.com/activadigital/plancia/configs/logger"
 	"github.com/activadigital/plancia/internal/adapters/manifest/file"
@@ -11,13 +9,12 @@ import (
 	"github.com/activadigital/plancia/internal/domain/skafos/manager"
 	"github.com/activadigital/plancia/internal/domain/types"
 	"go.uber.org/zap"
+	"k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/api/meta"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	kyaml "k8s.io/apimachinery/pkg/runtime/serializer/yaml"
-	ktypes "k8s.io/apimachinery/pkg/types"
 	"k8s.io/client-go/dynamic"
-	"k8s.io/utils/ptr"
 	"regexp"
 )
 
@@ -50,17 +47,8 @@ func (c *DockerCreator) apply(ctx context.Context, capiManifest string) error {
 		logger.Error(ctx, "error parsing resources from file", zap.Error(err))
 		return err
 	}
-	namespace := resources[0:1]
-	err = c.applyPatch(ctx, namespace, nil)
-	if err != nil {
-		return err
-	}
-	err = c.validate(ctx, resources)
-	if err != nil {
-		logger.Error(ctx, "server side validation failed", zap.Error(err))
-		return apperror.NewValidationError(err.Error())
-	}
-	err = c.applyPatch(ctx, resources, nil)
+
+	err = c.create(ctx, resources)
 	if err != nil {
 		logger.Error(ctx, "error applying capi resources", zap.Error(err))
 		return apperror.NewKubeError(err, apperror.Apply, "skafos", "")
@@ -100,24 +88,13 @@ func (c *DockerCreator) getScopedClient(mapping *meta.RESTMapping, namespace str
 	return
 }
 
-func (c *DockerCreator) validate(ctx context.Context, resources []resource) error {
-	return c.applyPatch(ctx, resources, []string{"All"})
-}
-
-func (c *DockerCreator) applyPatch(ctx context.Context, resources []resource, dryRun []string) error {
+func (c *DockerCreator) create(ctx context.Context, resources []resource) error {
 	for _, res := range resources {
 		dr := c.getScopedClient(res.mapping, res.unstr.GetNamespace())
-		data, err := json.Marshal(res.unstr)
-		if err != nil {
-			return err
-		}
-		data = bytes.ReplaceAll(data, []byte(":null"), []byte(":\"\""))
-		_, err = dr.Patch(ctx, res.unstr.GetName(), ktypes.ApplyPatchType, data, metav1.PatchOptions{
-			Force:        ptr.To(true),
+		_, err := dr.Create(ctx, res.unstr, metav1.CreateOptions{
 			FieldManager: configs.Global().ServiceName,
-			DryRun:       dryRun,
 		})
-		if err != nil {
+		if err != nil && !errors.IsAlreadyExists(err) {
 			return err
 		}
 	}

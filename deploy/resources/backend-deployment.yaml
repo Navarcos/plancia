@@ -18,7 +18,7 @@ spec:
       serviceAccountName: plancia
       containers:
         - name: plancia
-          image: ghcr.io/navarcos/plancia-backend:latest
+          image: ghcr.io/navarcos/plancia-backend
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: host-ca-certs

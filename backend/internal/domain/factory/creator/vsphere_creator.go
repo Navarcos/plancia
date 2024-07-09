@@ -32,20 +32,20 @@ func newVsphereCreator(skafosManager *manager.Manager) CreationStrategy {
 }
 
 func (c *VsphereCreator) Create(ctx context.Context, skafos types.Skafos) error {
-	ipPoolManifest, err := file.GetManifest(ctx, file.VSphereIpPoolPath, skafos.GetData())
-	if err != nil {
-		return err
-	}
-	err = c.apply(ctx, ipPoolManifest)
-	if err != nil {
-		return err
-	}
-
 	capiManifest, err := file.GetManifest(ctx, file.VSphereCapiPath, skafos.GetData())
 	if err != nil {
 		return err
 	}
 	err = c.apply(ctx, capiManifest)
+	if err != nil {
+		return err
+	}
+
+	ipPoolManifest, err := file.GetManifest(ctx, file.VSphereIpPoolPath, skafos.GetData())
+	if err != nil {
+		return err
+	}
+	err = c.apply(ctx, ipPoolManifest)
 	if err != nil {
 		return err
 	}

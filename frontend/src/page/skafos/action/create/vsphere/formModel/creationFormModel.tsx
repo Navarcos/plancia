@@ -42,8 +42,8 @@ export default {
       requiredErrorMsg: "Password is required",
       invalidMinLenghtErrorMsg:
         "Password is too short - should be 8 chars minimum",
-      invalidCharsErrorMsg:
-        "Password must contain 8 or more characters with at least one of each: uppercase, lowercase, number and special",
+      // invalidCharsErrorMsg:
+      //   "Password must contain 8 or more characters with at least one of each: uppercase, lowercase, number and special",
     },
 
     server: {

@@ -68,7 +68,7 @@ const MultiProvider: React.FC = () => {
                       label="Provider"
                       onChange={handleProviderChange}
                     >
-                      {/*<MenuItem value={"vSphere"}>vSphere</MenuItem>*/}
+                      <MenuItem value={"vSphere"}>vSphere</MenuItem>
                       {/*<MenuItem value={"Azure"}>Azure</MenuItem>*/}
                       <MenuItem value={"Docker"}>Docker</MenuItem>
                     </Select>
