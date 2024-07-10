@@ -19,7 +19,6 @@ import (
 	"github.com/activadigital/plancia/internal/domain/factory/installer"
 	"github.com/activadigital/plancia/internal/domain/skafos/client"
 	"github.com/activadigital/plancia/internal/domain/skafos/manager"
-	"github.com/activadigital/plancia/internal/usecase"
 	"github.com/activadigital/plancia/internal/usecase/skafos"
 	"github.com/go-resty/resty/v2"
 	"go.uber.org/zap"
@@ -83,11 +82,11 @@ func Run() error {
 	skafosCreator := skafos.NewSkafosCreator(skafosManager, creatorFactory, keycloakAdapter, installerFactory, clientRegistry)
 	skafosPatcher := skafos.NewSkafosPatcher(skafosManager)
 	skafosDeleter := skafos.NewSkafosCleaner(skafosManager, clientRegistry, keycloakAdapter)
-	clusterUseCase := usecase.NewClusterUsecase(clientRegistry)
+	clusterImporter := skafos.NewClusterImporter(skafosManager, clientRegistry)
 
 	app := server.NewApplication(
 		skafosCreator, skafosGetter, skafosPatcher, skafosDeleter,
-		clientRegistry, gocloakClient, clusterUseCase,
+		clientRegistry, gocloakClient, clusterImporter,
 	)
 
 	httpServer := app.Run(ctx)

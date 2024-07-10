@@ -10,6 +10,7 @@ import (
 	"github.com/activadigital/plancia/internal/domain/types"
 	"go.uber.org/zap"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/utils/ptr"
 )
@@ -21,6 +22,7 @@ type Getter interface {
 	ApiDiscovery(ctx context.Context, namespace, name string) ([]*metav1.APIResourceList, error)
 	GetSkafosStats(ctx context.Context, name string, namespace string) (*dtos.ResourceOverview, error)
 	GetDockerSkafos(ctx context.Context, name string, namespace string) (*types.DockerSkafos, error)
+	GetExternalClusters(ctx context.Context, namespace string) (*unstructured.UnstructuredList, error)
 }
 
 type skafosGetter struct {
@@ -49,6 +51,16 @@ func (getter *skafosGetter) getSkafosList(ctx context.Context) ([]types.Skafos, 
 		return nil, apperror.NewKubeError(err, apperror.List, "skafos", "")
 	}
 	return skafosList, nil
+}
+
+func (getter *skafosGetter) GetExternalClusters(ctx context.Context, namespace string) (*unstructured.UnstructuredList, error) {
+	secrets, err := getter.skafosManager.Resource(types.SecretGvr).Namespace(namespace).List(ctx, metav1.ListOptions{
+		LabelSelector: types.SkafosLabel + "=false",
+	})
+	if err != nil {
+		return nil, err
+	}
+	return secrets, nil
 }
 
 func (getter *skafosGetter) getSkafosListByNamespace(ctx context.Context, namespace string) ([]types.Skafos, error) {

@@ -9,6 +9,7 @@ import (
 	"github.com/activadigital/plancia/internal/usecase/skafos"
 	"github.com/activadigital/plancia/internal/util"
 	"github.com/gorilla/mux"
+	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"net/http"
 	"sort"
 	"strconv"
@@ -249,5 +250,55 @@ func HandleDeleteSkafos(deleter skafos.Cleaner) http.HandlerFunc {
 			return
 		}
 		_ = httpjson.Encode(writer, request, http.StatusAccepted, struct{}{})
+	}
+}
+
+// HandleClusterImport
+// @Summary import cluster kubeconfig
+// @ID import-cluster
+// @Tags ExternalCluster
+// @Accept application/json
+// @Success 200
+// @Failure 500 {object} dtos.ProblemDetails
+// @Router /externalClusters [post]
+func HandleClusterImport(importer skafos.ClusterImporter) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		importRequest, err := httpjson.DecodeValid[dtos.ExternalClusterDto](r)
+		if err != nil {
+			setErrorInRequestContext(r, err)
+			return
+		}
+		externalCluster := mapper.NewExternalCluster(importRequest)
+		err = importer.Import(r.Context(), externalCluster)
+		if err != nil {
+			setErrorInRequestContext(r, err)
+			return
+		}
+		_ = httpjson.Encode(w, r, http.StatusOK, struct{}{})
+	}
+}
+
+// HandleGetExternalClusters
+// @Summary get external clusters
+// @ID get-external-clusters
+// @Tags
+// @Produce text/plain
+// @Param namespace path string true "namespace"
+// @Param clusterName path string true "clusterName"
+// @QueryParam provider path string true "provider name"
+// @Success 200
+// @Failure 500 {object} dtos.ProblemDetails
+// @Router /externalClusters [get]
+func HandleGetExternalClusters(getter skafos.Getter) http.HandlerFunc {
+	return func(writer http.ResponseWriter, request *http.Request) {
+		namespace := request.URL.Query().Get("namespace")
+		kubeconfigs, err := getter.GetExternalClusters(request.Context(), namespace)
+		if err != nil {
+			setErrorInRequestContext(request, err)
+			return
+		}
+		response := util.Map[unstructured.Unstructured, dtos.ExternalClusterDto](kubeconfigs.Items, mapper.NewExternalClusterDto)
+		_ = httpjson.Encode(writer, request, http.StatusOK, response)
+
 	}
 }

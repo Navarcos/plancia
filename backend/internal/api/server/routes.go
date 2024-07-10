@@ -28,7 +28,9 @@ func (s *Application) setupRoutes(gocloakClient *gocloak.GoCloak) {
 	)).Methods(http.MethodGet)
 
 	// Skafos management
-	apiRouter.HandleFunc("/skafos", handler.HandleGetSkafosList(s.skafosGetter)).Methods(http.MethodGet)
+	apiRouter.HandleFunc("/skafos",
+		handler.HandleGetSkafosList(s.skafosGetter)).Methods(http.MethodGet)
+
 	apiRouter.HandleFunc("/namespaces/{namespace}/vsphereSkafos/{name}",
 		handler.HandleGetVsphereSkafos(s.skafosGetter)).Methods(http.MethodGet)
 
@@ -49,6 +51,12 @@ func (s *Application) setupRoutes(gocloakClient *gocloak.GoCloak) {
 
 	apiRouter.HandleFunc("/namespaces/{namespace}/skafos/{name}",
 		handler.HandleDeleteSkafos(s.skafosDeleter)).Methods(http.MethodDelete)
+
+	apiRouter.HandleFunc("/externalClusters",
+		handler.HandleClusterImport(s.clusterImporter)).Methods(http.MethodPost)
+
+	apiRouter.HandleFunc("/externalClusters",
+		handler.HandleGetExternalClusters(s.skafosGetter)).Methods(http.MethodPost)
 
 	// Skafos Details
 	apiRouter.HandleFunc("/namespaces/{namespace}/skafos/{name}/kubeconfig",
@@ -160,10 +168,6 @@ func (s *Application) setupRoutes(gocloakClient *gocloak.GoCloak) {
 
 	apiRouter.HandleFunc("/namespaces/{skafosNamespace}/skafos/{skafosName}/releases",
 		handler.HandleListReleases(s.registry)).Methods(http.MethodGet)
-
-	//Cluster
-	apiRouter.HandleFunc("/skafos/namespaces/{namespace}/cluster/{clusterName}/import", handler.HandleClusterImport(s.clusterUsecase)).Methods(http.MethodPost)
-	apiRouter.HandleFunc("/namespaces", handler.HandleGetNamespaces(s.clusterUsecase)).Methods(http.MethodGet)
 
 	// profiling
 	addProfileRoutes(s.router)

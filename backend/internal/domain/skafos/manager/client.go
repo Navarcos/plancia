@@ -115,7 +115,7 @@ func (i *Manager) buildSkafos(ctx context.Context, clusterInterface interface{})
 }
 
 func getProvider(cluster *v1beta1.Cluster) (types.Provider, error) {
-	labelValue := cluster.GetLabels()["navarcos.io/provider"]
+	labelValue := cluster.GetLabels()[types.ProviderLabel]
 	return types.ProviderFromValue(labelValue)
 }
 
