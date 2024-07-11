@@ -55,6 +55,66 @@ const docTemplate = `{
                 }
             }
         },
+        "/externalClusters": {
+            "get": {
+                "produces": [
+                    "text/plain"
+                ],
+                "tags": [
+                    ""
+                ],
+                "summary": "get external clusters",
+                "operationId": "get-external-clusters",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "namespace",
+                        "name": "namespace",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "clusterName",
+                        "name": "clusterName",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/github_com_activadigital_plancia_internal_api_dtos.ProblemDetails"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ExternalCluster"
+                ],
+                "summary": "import cluster kubeconfig",
+                "operationId": "import-cluster",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/github_com_activadigital_plancia_internal_api_dtos.ProblemDetails"
+                        }
+                    }
+                }
+            }
+        },
         "/namespaces/{namespace}/kubeadmControlplane/{name}": {
             "patch": {
                 "consumes": [
@@ -353,10 +413,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "VsphereSkafos"
+                    "DockerSkafos"
                 ],
-                "summary": "get skafos by name",
-                "operationId": "get-skafos-by-name",
+                "summary": "get docker skafos by name",
+                "operationId": "get-docker-skafos",
                 "parameters": [
                     {
                         "type": "string",
@@ -377,7 +437,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_activadigital_plancia_internal_api_dtos.GetVsphereResponse"
+                            "$ref": "#/definitions/github_com_activadigital_plancia_internal_api_dtos.GetSkafosResponse"
                         }
                     },
                     "404": {
@@ -2732,32 +2792,14 @@ const docTemplate = `{
         "github_com_activadigital_plancia_internal_api_dtos.ControlPlane": {
             "type": "object",
             "properties": {
-                "cpu": {
-                    "type": "integer"
-                },
-                "diskGb": {
-                    "type": "integer"
-                },
-                "folder": {
-                    "type": "string"
-                },
                 "kubernetesVersion": {
                     "type": "string"
-                },
-                "machineTemplate": {
-                    "type": "string"
-                },
-                "memoryGb": {
-                    "type": "integer"
                 },
                 "name": {
                     "type": "string"
                 },
                 "nodes": {
                     "type": "integer"
-                },
-                "resourcePool": {
-                    "type": "string"
                 },
                 "status": {
                     "$ref": "#/definitions/v1beta1.KubeadmControlPlaneStatus"
@@ -2864,7 +2906,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_activadigital_plancia_internal_api_dtos.GetVsphereResponse": {
+        "github_com_activadigital_plancia_internal_api_dtos.GetSkafosResponse": {
             "type": "object",
             "properties": {
                 "controlPlane": {
@@ -2907,35 +2949,14 @@ const docTemplate = `{
         "github_com_activadigital_plancia_internal_api_dtos.MachineDeployment": {
             "type": "object",
             "properties": {
-                "cpu": {
-                    "type": "integer"
-                },
-                "diskGb": {
-                    "type": "integer"
-                },
-                "folder": {
-                    "type": "string"
-                },
-                "kubernetesVersion": {
-                    "type": "string"
-                },
-                "machineTemplate": {
-                    "type": "string"
-                },
-                "memoryGb": {
-                    "type": "integer"
-                },
                 "name": {
                     "type": "string"
                 },
                 "nodes": {
                     "type": "integer"
                 },
-                "resourcePool": {
-                    "type": "string"
-                },
                 "status": {
-                    "$ref": "#/definitions/v1beta1.MachineDeploymentStatus"
+                    "$ref": "#/definitions/github_com_activadigital_plancia_internal_api_dtos.Status"
                 }
             }
         },
@@ -3059,6 +3080,26 @@ const docTemplate = `{
                 },
                 "memory": {
                     "$ref": "#/definitions/github_com_activadigital_plancia_internal_api_dtos.Metric"
+                }
+            }
+        },
+        "github_com_activadigital_plancia_internal_api_dtos.Status": {
+            "type": "object",
+            "properties": {
+                "phase": {
+                    "type": "string"
+                },
+                "readyReplicas": {
+                    "type": "integer"
+                },
+                "replicas": {
+                    "type": "integer"
+                },
+                "unavailableReplicas": {
+                    "type": "integer"
+                },
+                "updatedReplicas": {
+                    "type": "integer"
                 }
             }
         },
@@ -10737,50 +10778,6 @@ const docTemplate = `{
                 "timestamp": {
                     "description": "Timestamp is when last remediation happened. It is represented in RFC3339 form and is in UTC.",
                     "type": "string"
-                }
-            }
-        },
-        "v1beta1.MachineDeploymentStatus": {
-            "type": "object",
-            "properties": {
-                "availableReplicas": {
-                    "description": "Total number of available machines (ready for at least minReadySeconds)\ntargeted by this deployment.\n+optional",
-                    "type": "integer"
-                },
-                "conditions": {
-                    "description": "Conditions defines current service state of the MachineDeployment.\n+optional",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/v1beta1.Condition"
-                    }
-                },
-                "observedGeneration": {
-                    "description": "The generation observed by the deployment controller.\n+optional",
-                    "type": "integer"
-                },
-                "phase": {
-                    "description": "Phase represents the current phase of a MachineDeployment (ScalingUp, ScalingDown, Running, Failed, or Unknown).\n+optional",
-                    "type": "string"
-                },
-                "readyReplicas": {
-                    "description": "Total number of ready machines targeted by this deployment.\n+optional",
-                    "type": "integer"
-                },
-                "replicas": {
-                    "description": "Total number of non-terminated machines targeted by this deployment\n(their labels match the selector).\n+optional",
-                    "type": "integer"
-                },
-                "selector": {
-                    "description": "Selector is the same as the label selector but in the string format to avoid introspection\nby clients. The string will be in the same format as the query-param syntax.\nMore info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors\n+optional",
-                    "type": "string"
-                },
-                "unavailableReplicas": {
-                    "description": "Total number of unavailable machines targeted by this deployment.\nThis is the total number of machines that are still required for\nthe deployment to have 100% available capacity. They may either\nbe machines that are running but not yet available or machines\nthat still have not been created.\n+optional",
-                    "type": "integer"
-                },
-                "updatedReplicas": {
-                    "description": "Total number of non-terminated machines targeted by this deployment\nthat have the desired template spec.\n+optional",
-                    "type": "integer"
                 }
             }
         }

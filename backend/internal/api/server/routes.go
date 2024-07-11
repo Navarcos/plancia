@@ -56,7 +56,7 @@ func (s *Application) setupRoutes(gocloakClient *gocloak.GoCloak) {
 		handler.HandleClusterImport(s.clusterImporter)).Methods(http.MethodPost)
 
 	apiRouter.HandleFunc("/externalClusters",
-		handler.HandleGetExternalClusters(s.skafosGetter)).Methods(http.MethodPost)
+		handler.HandleGetExternalClusters(s.skafosGetter)).Methods(http.MethodGet)
 
 	// Skafos Details
 	apiRouter.HandleFunc("/namespaces/{namespace}/skafos/{name}/kubeconfig",
