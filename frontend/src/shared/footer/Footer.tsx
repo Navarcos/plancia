@@ -9,16 +9,9 @@ import Link from "@mui/material/Link";
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
-<<<<<<< Updated upstream
       {"Copyright © "}
       <Link color="inherit" href="https://www.activadigital.it">
         Activa Digital
-=======
-      {process.env.NODE_ENV}
-      {"Copyright © 2024"}
-      <Link color="inherit" href="https://mui.com/">
-        Navarcos
->>>>>>> Stashed changes
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}

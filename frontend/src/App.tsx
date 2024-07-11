@@ -57,7 +57,7 @@ const App = () => {
                   path="/skafos/create/vSphere"
                   element={<CreationPage />}
                 />
-                {/*<Route path="/skafos/create/import" element={<Import />} />*/}
+                <Route path="/skafos/create/import" element={<Import />} />
                 <Route
                   path="/skafos/create/docker"
                   element={<KindCreation />}
