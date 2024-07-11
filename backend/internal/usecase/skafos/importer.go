@@ -61,7 +61,7 @@ func (s *clusterImporter) Import(ctx context.Context, cluster *types.ExternalClu
 		logger.Error(ctx, "error creating secret", zap.Error(err))
 		return err
 	}
-	_, err = s.clientRegistry.Set(ctx, cluster.Namespace, cluster.Name, cluster.Kubeconfig)
+	_, err = s.clientRegistry.Set(ctx, cluster.Namespace, cluster.Name, []byte(cluster.Kubeconfig))
 	if err != nil {
 		logger.Error(ctx, "error registering new client in registry", zap.Error(err))
 		return err

@@ -4,5 +4,5 @@ type ExternalCluster struct {
 	Name       string
 	Namespace  string
 	Provider   string
-	Kubeconfig []byte
+	Kubeconfig string
 }
