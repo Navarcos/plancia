@@ -98,9 +98,6 @@ const ExtClusterTable: React.FC = () => {
                   <TableCell className="ext-list-table-cell">
                     Provider
                   </TableCell>
-                  <TableCell className="ext-list-table-cell">""</TableCell>
-                  <TableCell className="ext-list-table-cell">""</TableCell>
-                  <TableCell className="ext-list-table-cell">""</TableCell>
                 </TableRow>
               </TableHead>
 

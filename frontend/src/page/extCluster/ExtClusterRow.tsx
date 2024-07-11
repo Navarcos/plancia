@@ -47,25 +47,7 @@ const ExtClusterRow: React.FC<{
         sx={{ cursor: "pointer" }}
         // onClick={() => handleNavigate(row.namespace, row.name, row.provider)}
       >
-        <TableCell padding={"none"}>
-          <IconButton
-            className="ce-collapse-icon-button"
-            style={{ marginLeft: 30 }}
-            aria-label="expand row"
-            size="small"
-            onClick={handleIconButtonClick}
-          >
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-          </IconButton>
-        </TableCell>
-        <TableCell component="th" scope="row">
-          Name
-        </TableCell>
-        {!isSmallScreen && <TableCell>Namespace</TableCell>}
-        <TableCell>Config</TableCell>
-        <TableCell>""</TableCell>
-        <TableCell>""</TableCell>
-        <TableCell>""</TableCell>
+
       </StyledTableRow>
     </>
   );

@@ -6,12 +6,8 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  FormControl,
   Grid,
-  InputLabel,
-  MenuItem,
   Paper,
-  Select,
   Snackbar,
   TextField,
   ThemeProvider,
@@ -49,7 +45,8 @@ export default function Import() {
   const [yamlData, setYamlData] = useState("");
   const [namespace, setNamespace] = useState<string>("");
   const [clusterName, setClusterName] = useState<string>("");
-  let { provider } = useParams();
+  const [provider, setProvider ] = useState<string>("");
+  console.log("Provider " + provider)
 
   async function sendData(value: ExternalCluster): Promise<void> {
     setIsLoading(true);
@@ -73,6 +70,7 @@ export default function Import() {
   const handleCardClick = (value: any) => {
     setYamlData("");
     setOpen(true);
+    setProvider(value)
   };
 
   const handleSnackbarClose = () => {
