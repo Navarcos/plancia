@@ -51,8 +51,10 @@ const {
 export default [
   //Credentials
   Yup.object().shape({
-    [namespace.name]: Yup.string().required(`${name.requiredErrorMsg}`),
-    [name.name]: Yup.string().required(`${name.requiredErrorMsg}`),
+    [namespace.name]: Yup.string().required(`${name.requiredErrorMsg}`)
+        .matches(/^[a-z]+$/, `${namespace.lowerCaseMsg}`),
+    [name.name]: Yup.string().required(`${name.requiredErrorMsg}`)
+        .matches(/^[a-z]+$/, `${name.lowerCaseMsg}`),
     [kubernetesVersion.name]: Yup.string()
       .required(`${kubernetesVersion.requiredErrorMsg}`)
       .matches(/^(v)?\d+\.\d+\.\d+$/, `${kubernetesVersion.invalidErrorMsg}`),

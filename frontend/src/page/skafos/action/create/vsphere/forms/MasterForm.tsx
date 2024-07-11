@@ -41,6 +41,7 @@ const MasterForm = (props: {
                         label={masterNodes.label}
                         type="number"
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -50,6 +51,7 @@ const MasterForm = (props: {
                         label={masterCpus.label}
                         type="number"
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -59,6 +61,7 @@ const MasterForm = (props: {
                         label={masterMem.label}
                         type="number"
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -68,6 +71,7 @@ const MasterForm = (props: {
                         label={masterDisk.label}
                         type="number"
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>

@@ -56,6 +56,7 @@ const NetworkForm = (props: {
                         name={datacenter.name}
                         label={datacenter.label}
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -64,6 +65,7 @@ const NetworkForm = (props: {
                         name={datastore.name}
                         label={datastore.label}
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -72,6 +74,7 @@ const NetworkForm = (props: {
                         name={datastoreUrl.name}
                         label={datastoreUrl.label}
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -80,6 +83,7 @@ const NetworkForm = (props: {
                         name={network.name}
                         label={network.label}
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -88,6 +92,7 @@ const NetworkForm = (props: {
                         name={sshAuthorizedKey.name}
                         label={sshAuthorizedKey.label}
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -109,11 +114,8 @@ const NetworkForm = (props: {
                                                     {...field}
                                                     checked={field.value === true}
                                                     onChange={() => form.setFieldValue(dhcp.name, true)}
-                                                    color="primary"
-                                                />
-                                            }
-                                            label="yes"
-                                        />
+                                                    color="primary"/>}
+                                            label="yes"/>
                                         <FormControlLabel
                                             control={
                                                 <Checkbox
@@ -123,8 +125,7 @@ const NetworkForm = (props: {
                                                     color="primary"
                                                 />
                                             }
-                                            label="no"
-                                        />
+                                            label="no"/>
                                     </>
                                 )}
                             </Field>
@@ -136,6 +137,7 @@ const NetworkForm = (props: {
                         name={folder.name}
                         label={folder.label}
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -144,6 +146,7 @@ const NetworkForm = (props: {
                         name={controlPlaneEndpointIP.name}
                         label={controlPlaneEndpointIP.label}
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>

@@ -41,6 +41,7 @@ const WorkerForm = (props: {
                         label={workerNodes.label}
                         type="number"
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -50,6 +51,7 @@ const WorkerForm = (props: {
                         label={workerCpus.label}
                         fullWidth
                         type="number"
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -59,6 +61,7 @@ const WorkerForm = (props: {
                         label={workerMem.label}
                         type="number"
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -68,6 +71,7 @@ const WorkerForm = (props: {
                         label={workerDisk.label}
                         type="number"
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>

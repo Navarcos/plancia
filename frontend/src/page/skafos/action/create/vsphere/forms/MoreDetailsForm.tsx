@@ -49,6 +49,7 @@ const MoreDetailsForm = (props: {
                         name={resourcePool.name}
                         label={resourcePool.label}
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -57,6 +58,7 @@ const MoreDetailsForm = (props: {
                         name={machineTemplate.name}
                         label={machineTemplate.label}
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -65,6 +67,7 @@ const MoreDetailsForm = (props: {
                         name={storagePolicy.name}
                         label={storagePolicy.label}
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -73,6 +76,7 @@ const MoreDetailsForm = (props: {
                         name={nameserver1.name}
                         label={nameserver1.label}
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -81,6 +85,7 @@ const MoreDetailsForm = (props: {
                         name={nameserver2.name}
                         label={nameserver2.label}
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>
@@ -89,6 +94,7 @@ const MoreDetailsForm = (props: {
                         name={vCenterTlsThumbprint.name}
                         label={vCenterTlsThumbprint.label}
                         fullWidth
+                        required
                         component={InputField}
                     />
                 </Grid>

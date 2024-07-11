@@ -70,6 +70,7 @@ const KindForm = (props: {
             label={masterNodes.label}
             type="number"
             fullWidth
+            required
             component={InputField}
           />
         </Grid>
@@ -79,6 +80,7 @@ const KindForm = (props: {
             label={workerNodes.label}
             type="number"
             fullWidth
+            required
             component={InputField}
           />
         </Grid>

@@ -16,11 +16,13 @@ export default {
       name: "namespace",
       label: "Namespace",
       requiredErrorMsg: "Namespace is required",
+      lowerCaseMsg: "Namespace must be in lowercase",
     },
     name: {
       name: "name",
       label: "Name",
       requiredErrorMsg: "Name is required",
+      lowerCaseMsg: "Name must be in lowercase",
     },
 
     kubernetesVersion: {
