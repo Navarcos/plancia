@@ -33,7 +33,7 @@ func NewClusterImporter(skafosManager *manager.Manager, clientRegistry client.Sk
 
 func (s *clusterImporter) Import(ctx context.Context, cluster *types.ExternalCluster) error {
 	if err := s.createNamespace(ctx, cluster.Namespace); err != nil {
-		logger.Debug(ctx, "error in check namespace", zap.Error(err))
+		logger.Error(ctx, "error creating namespace", zap.Error(err))
 		return err
 	}
 
@@ -52,15 +52,18 @@ func (s *clusterImporter) Import(ctx context.Context, cluster *types.ExternalClu
 	})
 	unstr, err := runtime.DefaultUnstructuredConverter.ToUnstructured(secret)
 	if err != nil {
+		logger.Error(ctx, "error converting secret", zap.Error(err))
 		return err
 	}
 	_, err = s.skafosManager.Resource(types.SecretGvr).Namespace(cluster.Namespace).
 		Create(ctx, &unstructured.Unstructured{Object: unstr}, metav1.CreateOptions{})
 	if err != nil {
+		logger.Error(ctx, "error creating secret", zap.Error(err))
 		return err
 	}
 	_, err = s.clientRegistry.Set(ctx, cluster.Namespace, cluster.Name, cluster.Kubeconfig)
 	if err != nil {
+		logger.Error(ctx, "error registering new client in registry", zap.Error(err))
 		return err
 	}
 	return nil

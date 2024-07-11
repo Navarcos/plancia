@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"github.com/activadigital/plancia/configs/logger"
 	"github.com/activadigital/plancia/internal/api/dtos"
 	"github.com/activadigital/plancia/internal/api/mapper"
 	"github.com/activadigital/plancia/internal/api/server/httpjson"
@@ -9,6 +10,7 @@ import (
 	"github.com/activadigital/plancia/internal/usecase/skafos"
 	"github.com/activadigital/plancia/internal/util"
 	"github.com/gorilla/mux"
+	"go.uber.org/zap"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"net/http"
 	"sort"
@@ -265,6 +267,7 @@ func HandleClusterImport(importer skafos.ClusterImporter) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		importRequest, err := httpjson.DecodeValid[dtos.ExternalClusterDto](r)
 		if err != nil {
+			logger.Error(r.Context(), "error importing cluster", zap.Error(err))
 			setErrorInRequestContext(r, err)
 			return
 		}
