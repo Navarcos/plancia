@@ -6,17 +6,17 @@ import { Link } from "react-router-dom";
 import List from "@mui/material/List";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
-import {Config} from "../../config"
+import { Config } from "../../config";
 
 const MainMenu: React.FC = () => {
   const mainMenuList = [
     { text: "Skafos", icon: <FolderIcon />, link: "/skafos" },
     { text: "New Skafos", icon: <AddCircleIcon />, link: "/skafos/create" },
-    // {
-    //   text: "Import",
-    //   icon: <ImportExportIcon />,
-    //   link: "/skafos/create/import",
-    // },
+    {
+      text: "Import",
+      icon: <ImportExportIcon />,
+      link: "/skafos/create/import",
+    },
   ];
 
   return (
@@ -38,10 +38,7 @@ const MainMenu: React.FC = () => {
 
 function redirectToKeycloak() {
   let adminUrl =
-    Config.keycloakUrl +
-    "/admin/" +
-      Config.keycloakRealm +
-    "/console";
+    Config.keycloakUrl + "/admin/" + Config.keycloakRealm + "/console";
   window.open(adminUrl, "_blank")?.focus();
 }
 

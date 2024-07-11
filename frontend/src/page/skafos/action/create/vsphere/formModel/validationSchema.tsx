@@ -51,10 +51,12 @@ const {
 export default [
   //Credentials
   Yup.object().shape({
-    [namespace.name]: Yup.string().required(`${name.requiredErrorMsg}`)
-        .matches(/^[a-z]+$/, `${namespace.lowerCaseMsg}`),
-    [name.name]: Yup.string().required(`${name.requiredErrorMsg}`)
-        .matches(/^[a-z]+$/, `${name.lowerCaseMsg}`),
+    [namespace.name]: Yup.string()
+      .required(`${name.requiredErrorMsg}`)
+      .matches(/^[a-z]+$/, `${namespace.lowerCaseMsg}`),
+    [name.name]: Yup.string()
+      .required(`${name.requiredErrorMsg}`)
+      .matches(/^[a-z]+$/, `${name.lowerCaseMsg}`),
     [kubernetesVersion.name]: Yup.string()
       .required(`${kubernetesVersion.requiredErrorMsg}`)
       .matches(/^(v)?\d+\.\d+\.\d+$/, `${kubernetesVersion.invalidErrorMsg}`),
@@ -62,10 +64,6 @@ export default [
     [password.name]: Yup.string()
       .required(`${password.requiredErrorMsg}`)
       .min(8, `${password.invalidMinLenghtErrorMsg}`),
-      // .matches(
-      //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-      //   `${password.invalidCharsErrorMsg}`
-      // ),
     [server.name]: Yup.string()
       .required(`${server.requiredErrorMsg}`)
       .matches(
