@@ -31,8 +31,12 @@ const ExtClusterRow: React.FC<{
     setOpen(allOpen);
   }, [allOpen]);
 
-  const handleNavigate = () => {
-    navigate("");
+  const handleNavigate = (
+      namespace: string,
+      name: string,
+      provider: string
+  ) => {
+    navigate("/skafos/" + namespace + "/" + name + "/" + provider);
   };
 
   const handleIconButtonClick = (event: React.MouseEvent) => {
@@ -45,9 +49,10 @@ const ExtClusterRow: React.FC<{
       <StyledTableRow
         className="ce-styled-table-row"
         sx={{ cursor: "pointer" }}
-        // onClick={() => handleNavigate(row.namespace, row.name, row.provider)}
-      >
-
+        onClick={() => handleNavigate(row.namespace, row.name, row.provider)}      >
+        <TableCell component="th" scope="row">{row.name}</TableCell>
+        <TableCell component="th" scope="row">{row.namespace}</TableCell>
+        <TableCell component="th" scope="row">{row.provider}</TableCell>
       </StyledTableRow>
     </>
   );

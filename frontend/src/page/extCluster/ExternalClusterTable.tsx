@@ -75,21 +75,6 @@ const ExtClusterTable: React.FC = () => {
             <Table aria-label="collapsible table">
               <TableHead>
                 <TableRow>
-                  <TableCell className="ext-list-table-cell-collapse">
-                    <IconButton
-                      className="ext-list-icon-collapse"
-                      aria-label="expand all rows"
-                      size="small"
-                      onClick={toggleAllOpen}
-                    >
-                      {allOpen ? (
-                        <KeyboardArrowUpIcon />
-                      ) : (
-                        <KeyboardArrowDownIcon />
-                      )}
-                    </IconButton>
-                  </TableCell>
-
                   <TableCell className="ext-list-table-cell">Name</TableCell>
                   <TableCell className="ext-list-table-cell">
                     Namespace
