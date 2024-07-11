@@ -2,6 +2,7 @@ package skafos
 
 import (
 	"context"
+	"encoding/base64"
 	"fmt"
 	"github.com/activadigital/plancia/configs/logger"
 	"github.com/activadigital/plancia/internal/domain/skafos/client"
@@ -43,7 +44,7 @@ func (s *clusterImporter) Import(ctx context.Context, cluster *types.ExternalClu
 			Namespace: cluster.Namespace,
 		},
 		Data: map[string][]byte{
-			"value": cluster.Kubeconfig,
+			"value": []byte(base64.StdEncoding.EncodeToString(cluster.Kubeconfig)),
 		},
 	}
 	secret.SetLabels(map[string]string{
