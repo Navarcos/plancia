@@ -55,20 +55,6 @@
   margin-right: 2px;
 }
 
-.imp-namespace-box-select {
-  width: 70%;
-}
-
-.imp-namespace-box-text {
-  width: 70%;
-}
-
-.imp-namespace-select-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
 .imp-namespace-select-container .MuiButtonBase-root {
   margin-left: 16%;
   margin-top: 25px;

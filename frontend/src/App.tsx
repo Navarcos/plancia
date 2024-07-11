@@ -24,7 +24,7 @@ import Pv from "./page/skafos/detail/pv/Pv";
 import HelmReleases from "./page/skafos/detail/helm/HelmReleases";
 import MultiProvider from "./page/skafos/action/create/MultiProvider";
 import KindCreation from "./page/skafos/action/create/kindForm/KindCreation";
-import Imports from "./page/skafos/action/imports/Imports";
+import Import from "./page/skafos/action/import/Import";
 
 const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -57,7 +57,7 @@ const App = () => {
                   path="/skafos/create/vSphere"
                   element={<CreationPage />}
                 />
-                {/*<Route path="/skafos/create/import" element={<Imports />} />*/}
+                {/*<Route path="/skafos/create/import" element={<Import />} />*/}
                 <Route
                   path="/skafos/create/docker"
                   element={<KindCreation />}

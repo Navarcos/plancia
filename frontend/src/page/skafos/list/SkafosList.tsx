@@ -1,11 +1,13 @@
 import React from "react";
-import { ThemeProvider } from "@mui/material/styles";
+import {ThemeProvider} from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import theme from "../../../style/responsiveTheme/customTheme";
 import SkafosTable from "./grid/SkafosTable";
 import "./skafos-list.css";
+import ExtClusterTable from "../../extCluster/ExternalClusterTable";
+
 
 const SkafosList: React.FC = () => {
     return (
@@ -19,9 +21,10 @@ const SkafosList: React.FC = () => {
                             : theme.palette.grey[900],
                 }}
             >
-                <CssBaseline />
+                <CssBaseline/>
                 <Container maxWidth="xl">
-                    <SkafosTable />
+                    <SkafosTable/>
+                    <ExtClusterTable/>
                 </Container>
             </Box>
         </ThemeProvider>

@@ -25,7 +25,7 @@ import {shakeAnimation} from "./AnimationList";
 import {CustomTypography} from "../../../../style/font/CustomTypography";
 import SkafosRow from "../collapsible/SkafosRow";
 import {useInterval} from "../../../../hooks/useInterval";
-import { Config } from "../../../../config";
+import {Config} from "../../../../config";
 
 
 const SkafosTable: React.FC = () => {
