@@ -43,7 +43,7 @@ func (s *clusterImporter) Import(ctx context.Context, cluster *types.ExternalClu
 			Namespace: cluster.Namespace,
 		},
 		StringData: map[string]string{
-			"value": string(cluster.Kubeconfig),
+			"value": cluster.Kubeconfig,
 		},
 	}
 	secret.SetLabels(map[string]string{
@@ -76,10 +76,10 @@ func (s *clusterImporter) createNamespace(ctx context.Context, namespace string)
 		return err
 	}
 	_, err = s.skafosManager.Resource(types.NamespaceGvr).Create(ctx, &unstructured.Unstructured{Object: unstr}, metav1.CreateOptions{})
-	if err != nil && errors.IsConflict(err) {
-		return nil
-	} else if err != nil {
-		return err
+	if err != nil {
+		if !errors.IsConflict(err) {
+			return err
+		}
 	}
 	return nil
 }
