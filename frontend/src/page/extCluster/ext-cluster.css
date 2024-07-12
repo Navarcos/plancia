@@ -1,43 +1,57 @@
 .ext-list-box {
-    width: 100%;
-    padding-bottom: 30px;
+  width: 100%;
+  padding-bottom: 30px;
 }
 
 .ext-list-title-box {
-    width: 100%;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 200px;
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 200px;
 }
 
 .ext-list-title-paper {
-    width: 100%;
-    border: 1px solid #e0e0e0;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 .ext-list-title-box .ext-list-icon-collapse {
-    margin-left: 15px !important;
+  margin-left: 15px !important;
 }
 .ext-list-st-icon {
-    color: #c8abb4;
+  color: #c8abb4;
 }
 
 .ext-list-table-container {
-    border: 1px solid #e0e0e0;
+  border: 1px solid #e0e0e0;
 }
 .ext-list-table-container .MuiTableCell-root {
-    font-weight: bold !important;
+  font-weight: bold !important;
 }
 
 .ext-table-cell-collapse {
-    width: 100px;
+  width: 100px;
 }
 
+/* .ext-list-table-cell-1 {
+  width: 30;
+  font-weight: bold;
+} */
+
 .ext-list-table-cell-1 {
-    width: 30;
-    font-weight: bold;
+  width: 40%;
+  font-weight: bold;
+}
+.ext-list-table-cell-2 {
+  width: 25%;
+  font-weight: bold;
+}
+
+.ext-list-table-cell-3 {
+  width: 25%;
+  font-weight: bold;
 }

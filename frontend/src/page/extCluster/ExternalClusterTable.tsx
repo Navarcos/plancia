@@ -75,12 +75,12 @@ const ExtClusterTable: React.FC = () => {
             <Table aria-label="collapsible table">
               <TableHead>
                 <TableRow>
-                  <TableCell className="ext-list-table-cell">Name</TableCell>
-                  <TableCell className="ext-list-table-cell">
+                  <TableCell className="ext-list-table-cell-1">Name</TableCell>
+                  <TableCell className="ext-list-table-cell-2">
                     Namespace
                   </TableCell>
 
-                  <TableCell className="ext-list-table-cell">
+                  <TableCell className="ext-list-table-cell-3">
                     Provider
                   </TableCell>
                 </TableRow>
