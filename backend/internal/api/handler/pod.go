@@ -1,10 +1,12 @@
 package handler
 
 import (
+	"github.com/activadigital/plancia/configs/logger"
 	_ "github.com/activadigital/plancia/internal/api/dtos"
 	"github.com/activadigital/plancia/internal/api/server/httpjson"
 	"github.com/activadigital/plancia/internal/domain/skafos/client"
 	"github.com/activadigital/plancia/internal/usecase/resource"
+	"go.uber.org/zap"
 	"net/http"
 )
 
@@ -26,6 +28,7 @@ func HandleListPods(registry client.SkafosRegistry) http.HandlerFunc {
 		param.ResourceNamespace = resourceNamespace
 		list, err := resource.ListPods(request.Context(), registry, param)
 		if err != nil {
+			logger.Error(request.Context(), "error listing pods", zap.Error(err))
 			setErrorInRequestContext(request, err)
 			return
 		}
@@ -51,6 +54,7 @@ func HandleGetPod(registry client.SkafosRegistry) http.HandlerFunc {
 		param := apiParams(request)
 		result, err := resource.GetPod(request.Context(), registry, param)
 		if err != nil {
+			logger.Error(request.Context(), "error getting pods", zap.Error(err))
 			setErrorInRequestContext(request, err)
 			return
 		}
@@ -76,6 +80,7 @@ func HandleDeletePod(registry client.SkafosRegistry) http.HandlerFunc {
 		param := apiParams(request)
 		err := resource.DeletePod(request.Context(), registry, param)
 		if err != nil {
+			logger.Error(request.Context(), "error deleting pods", zap.Error(err))
 			setErrorInRequestContext(request, err)
 			return
 		}
