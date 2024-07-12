@@ -77,7 +77,7 @@ func (s *clusterImporter) createNamespace(ctx context.Context, namespace string)
 	}
 	_, err = s.skafosManager.Resource(types.NamespaceGvr).Create(ctx, &unstructured.Unstructured{Object: unstr}, metav1.CreateOptions{})
 	if err != nil {
-		if !errors.IsConflict(err) {
+		if !errors.IsAlreadyExists(err) {
 			return err
 		}
 	}
