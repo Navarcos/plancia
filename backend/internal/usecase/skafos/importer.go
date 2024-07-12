@@ -39,7 +39,7 @@ func (s *clusterImporter) Import(ctx context.Context, cluster *types.ExternalClu
 
 	secret := &v1.Secret{
 		ObjectMeta: metav1.ObjectMeta{
-			Name:      fmt.Sprintf("%s-kubeconfig", cluster.Name),
+			Name:      fmt.Sprintf("%s-kubeconfig", cluster.GetId()),
 			Namespace: cluster.Namespace,
 		},
 		StringData: map[string]string{
@@ -55,6 +55,7 @@ func (s *clusterImporter) Import(ctx context.Context, cluster *types.ExternalClu
 		logger.Error(ctx, "error converting secret", zap.Error(err))
 		return err
 	}
+
 	_, err = s.skafosManager.Resource(types.SecretGvr).Namespace(cluster.Namespace).
 		Create(ctx, &unstructured.Unstructured{Object: unstr}, metav1.CreateOptions{})
 	if err != nil {

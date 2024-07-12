@@ -1,7 +1,6 @@
 package mapper
 
 import (
-	"fmt"
 	"github.com/activadigital/plancia/internal/api/dtos"
 	_ "github.com/activadigital/plancia/internal/api/dtos"
 	"github.com/activadigital/plancia/internal/domain/types"
@@ -11,7 +10,7 @@ import (
 
 func NewExternalCluster(request dtos.ExternalClusterDto) *types.ExternalCluster {
 	return &types.ExternalCluster{
-		Name:       fmt.Sprintf("%s-%s", request.Namespace, request.Name),
+		Name:       request.Name,
 		Namespace:  request.Namespace,
 		Provider:   request.Provider,
 		Kubeconfig: request.Kubeconfig,

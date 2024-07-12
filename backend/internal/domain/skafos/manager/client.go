@@ -3,6 +3,7 @@ package manager
 import (
 	"context"
 	"fmt"
+	"github.com/activadigital/plancia/internal/domain/apperror"
 	"github.com/activadigital/plancia/internal/domain/factory/builder"
 	"github.com/activadigital/plancia/internal/domain/types"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
@@ -166,7 +167,7 @@ func (i *Manager) getCluster(ctx context.Context, name string, namespace string)
 		return nil, err
 	}
 	if !exists {
-		return nil, fmt.Errorf("not found")
+		return nil, apperror.NewNotFoundError("skafos not found")
 	}
 	unstructuredCluster := clusterInterface.(*unstructured.Unstructured)
 	cluster := &v1beta1.Cluster{}

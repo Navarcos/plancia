@@ -2,6 +2,7 @@ package skafos
 
 import (
 	"context"
+	"errors"
 	"github.com/activadigital/plancia/configs/logger"
 	"github.com/activadigital/plancia/internal/api/dtos"
 	"github.com/activadigital/plancia/internal/domain/apperror"
@@ -78,6 +79,10 @@ func (getter *skafosGetter) GetVsphereSkafos(ctx context.Context, name string, n
 	if err != nil {
 		logger.Error(ctx, "error getting skafos", zap.Error(err),
 			zap.String("namespace", namespace), zap.String("name", name))
+		notFoundErr := &apperror.NotFoundError{}
+		if errors.As(err, notFoundErr) {
+			return nil, err
+		}
 		return nil, apperror.NewKubeError(err, apperror.List, "skafos", name)
 	}
 	return vsphereSkafos, nil
