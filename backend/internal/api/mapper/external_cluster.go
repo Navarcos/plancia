@@ -6,6 +6,7 @@ import (
 	_ "github.com/activadigital/plancia/internal/api/dtos"
 	"github.com/activadigital/plancia/internal/domain/types"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
+	"strings"
 )
 
 func NewExternalCluster(request dtos.ExternalClusterDto) *types.ExternalCluster {
@@ -19,7 +20,7 @@ func NewExternalCluster(request dtos.ExternalClusterDto) *types.ExternalCluster 
 
 func NewExternalClusterDto(kubeconfig unstructured.Unstructured) dtos.ExternalClusterDto {
 	return dtos.ExternalClusterDto{
-		Name:      kubeconfig.GetName(),
+		Name:      strings.Replace(kubeconfig.GetName(), "-kubeconfig", "", 1),
 		Namespace: kubeconfig.GetNamespace(),
 		Provider:  kubeconfig.GetLabels()[types.ProviderLabel],
 	}

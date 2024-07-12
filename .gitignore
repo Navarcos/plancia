@@ -1,6 +1,6 @@
 .idea
 .idea/**
-
+./.run
 
 frontend/node_modules
 frontend/.pnp
