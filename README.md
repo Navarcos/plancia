@@ -19,23 +19,20 @@ The installation process is really simple:
 6. Accept Navarcos' CA, either:
    1. Copying the CA Certificate from the script output in a file and installing it in your browser
    2. Connecting and accepting the certificates to:
-
       * `https://keycloak.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
       * `https://plancia-api.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
       * `https://plancia.<IP ADDRESS OF NAVARCOS CONTROL PLANE>.nip.io`
-
    Correct URLs are printed during the deploy script.
 7. Login with default credential:
-  * username: `ncadmin@ncadmin.local`
-  * passowrd: `ncadmin`
+   * username: `ncadmin@ncadmin.local`
+   * password: `ncadmin`
 
 ## Create Skafos
+
 A Skafos is a kubernetes cluster managed by navarcos.
 In order to create a new Skafos select the "plus icon" (New Skafos) on the left sidebar.
 Fill out the form and wait a few seconds to see the new skafos.
 Click on the skafos to see additional info on its status and the resource inside it.
-
-
 
 ## Contributing
 
